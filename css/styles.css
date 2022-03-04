@@ -2,3 +2,118 @@ body {
     background-color: #192f5e;
     font-family: sans-serif;
 }
+
+/* ******************************* header and nav  */
+
+/* step 1. Style the nav for when it shows , 
+starting with the mobile viewand then hide it */
+
+header{
+    background-color: white;
+    padding: 2%; 
+    display: flex;
+    flex-flow:wrap;
+    justify-content: space-between;
+}
+
+.toggle-button{
+    border: none;
+    background-color: #fff;
+    
+}
+
+.toggle-button:hover{
+    cursor: pointer;
+}
+
+nav{
+    flex: 1 0 100%;
+}
+
+.menu a {
+    color:#3f3f3f;
+    text-decoration: none;
+    /* allows the cliclable area to take up the full width and height if the li */
+    display: block;
+    
+}
+
+.menu a:hover,
+.menu a:active{
+    background-color: gainsboro;
+    border-radius: 4px;
+}
+    
+
+.menu li{
+    line-height: 40px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+
+/* step 2 : hide the nav for the default screen.
+we can do this by using display none  but display:none will not 
+take a transition properly */
+
+header nav{
+    max-height: 0;
+    overflow: hidden;
+}
+
+/* step 3 ,create a special class that will show the nav , this class
+exists in the css file for now . donot add to the html markup 
+the hs file will add this class to the html
+ for use when the button is clicked . */
+
+.show-nav{
+    max-height: 50vh;
+}
+
+/* ********************section************************** */
+
+section{
+    padding: 3.125rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+section p{
+    color: #d5e294;
+}
+
+section h2{
+    color: #fff;
+    font-size: 3.175rem;
+}
+
+
+/* step 4. add a media querry where the nav will show by default. Hide
+the togglebutton and toggle the nac as horizental nav for the 
+desktop or wider screem */
+
+@media screen and (min-width:625px) {
+    .toggle-button{
+        display: none;
+    }
+
+    /* we wanna see the nav by default so give it its heigt back*/
+
+    header nav{
+        max-height: initial;
+        overflow: visible;
+        flex: 0 0 auto;
+    }
+
+    /* style the menu links horizentally */
+
+   ul.menu{
+       display: flex;
+       gap: 1rem;
+   }
+
+   ul.menu a{
+       padding: 0 0.75rem;
+   }
+
+}
